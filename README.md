@@ -1,2 +1,2 @@
-# Jay_Nordstrom_reviews
+# Jay_Nordstrom_Reviews
 Reviews component for Nordstrom app
