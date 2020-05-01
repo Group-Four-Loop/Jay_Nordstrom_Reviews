@@ -1,0 +1,39 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "Review component for Nordstrom item page clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "react-dev": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Group-Four-Loop/Jay_Nordstrom_Reviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Group-Four-Loop/Jay_Nordstrom_Reviews/issues"
+  },
+  "homepage": "https://github.com/Group-Four-Loop/Jay_Nordstrom_Reviews#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "jest": "^25.5.2",
+    "nodemon": "^2.0.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
