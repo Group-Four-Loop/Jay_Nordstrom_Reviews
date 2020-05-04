@@ -70,7 +70,17 @@ const products = () => {
 
 Products.collection.insertMany(products());
 
-module.exports = { Products };
+const getAll = (callback) => {
+  Products.find({}, function(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(data);
+    }
+  })
+}
+
+module.exports = { Products, getAll };
 
 
 
