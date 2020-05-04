@@ -8,6 +8,9 @@ const app = express();
 // Set a constant for the port that our express server will listen on
 const PORT = 3000;
 
+//import getAll func from DB/dataGen.js
+const { getAll } = require('../db/dataGen.js');
+
 // Serve static files. Any requests for specific files will be served if they exist in the provided folder
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
