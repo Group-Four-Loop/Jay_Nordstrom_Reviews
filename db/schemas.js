@@ -11,13 +11,9 @@ const reviewSchema = new mongoose.Schema({
 
 const itemsSchema = new mongoose.Schema({
   _id: Number,
+  type: String,
   reviews: [reviewSchema]
 });
 
-const productsSchema = new mongoose.Schema({
-  _id: Number,
-  type: String,
-  items: [itemsSchema]
-});
 
-module.exports = { reviewSchema, itemsSchema, productsSchema };
+module.exports = { reviewSchema, itemsSchema };

@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 //to parse json data
 app.use(express.json());
 
-app.get('/products', (req, res) => {
+app.get('/items', (req, res) => {
   getAll((data) => {
     res.send(data);
   })

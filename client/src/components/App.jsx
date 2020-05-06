@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('/products')
+    axios.get('/items')
       .then((response) => {
         console.log(response);
         this.setState({reviews: response.data})

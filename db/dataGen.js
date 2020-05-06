@@ -5,7 +5,7 @@ const { reviewSchema, itemsSchema, productsSchema } = require('./schemas.js');
 const faker = require('faker');
 const {randNumGen, sweepstakes, itemType} = require('./helper.js');
 
-const Products = mongoose.model('Products', productsSchema);
+const Items = mongoose.model('Items', itemsSchema);
 
 const generateReview = () => {
 
@@ -16,7 +16,7 @@ const generateReview = () => {
   review.title = faker.lorem.sentence();
   review.text = faker.lorem.paragraph();
   review.username = faker.internet.userName();
-  review.date = faker.date.past(); //worry about date format later
+  review.date = faker.date.past();
   review.sweepstakes = sweepstakes();
 
   return review;
@@ -48,40 +48,52 @@ const itemsPerProduct = () => {
   }
   return itemsArr;
 };
-//id: 1, id: 20 => id: 120
-const products = () => {
-  const products = [];
+
+const items = () => {
+  const items = [];
 
   for (var i = 1; i <= 3; i += 1) {
-    let product = {};
     if (i === 1) {
-      product.type = 'shirts';
+      for (var j = 0; j <= 32; j += 1) {
+        let item = {};
+        item.type = 'shirt';
+        item.id = (i.toString() + j.toString());
+        item.reviews = reviewsPerItem();
+        items.push(item);
+      }
     } else if (i === 2) {
-      product.type = 'shoes';
+      for (var j = 0; j <= 32; j += 1) {
+        let item = {};
+        item.type = 'shoes';
+        let prefix = 5;
+        item.id = (prefix.toString() + j.toString());
+        item.reviews = reviewsPerItem();
+        items.push(item);
+      }
     } else if (i === 3) {
-      product.type = 'pants';
+      for (var j = 0; j <= 32; j += 1) {
+        let item = {};
+        item.type = 'pants';
+        let prefix = 9;
+        item.id = (prefix.toString() + j.toString());
+        item.reviews = reviewsPerItem();
+        items.push(item);
+      }
     }
-    product.id = i;
-    product.items = itemsPerProduct();
-    products.push(product);
   }
-  return products;
+  return items;
 };
 
-Products.collection.insertMany(products());
+Items.collection.insertMany(items());
 
 const getAll = (callback) => {
-  Products.find({}, function(err, data) {
+  Items.find({}, function(err, data) {
     if (err) {
       console.log(err);
     } else {
       callback(data);
     }
   })
-}
+};
 
-module.exports = { Products, getAll };
-
-
-
-
+module.exports = { Items, getAll };
