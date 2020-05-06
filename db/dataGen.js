@@ -48,7 +48,7 @@ const itemsPerProduct = () => {
   }
   return itemsArr;
 };
-
+//id: 1, id: 20 => id: 120
 const products = () => {
   const products = [];
 
