@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3000;
 
 //import getAll func from DB/dataGen.js
-const { getAll } = require('../db/dataGen.js');
+const { getAll, findItemById } = require('../db/dataGen.js');
 
 // Serve static files. Any requests for specific files will be served if they exist in the provided folder
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -21,7 +21,14 @@ app.get('/items', (req, res) => {
   getAll((data) => {
     res.send(data);
   })
-})
+});
+
+app.get('/items/:id', (req, res) => {
+  //console.log('req ====>', req.params.id);
+  findItemById(req.params.id, (data) => {
+    res.send(data);
+  })
+});
 
 // Start the server on the provided port
 app.listen(PORT, () => console.log('Listening on port: ' + PORT));
