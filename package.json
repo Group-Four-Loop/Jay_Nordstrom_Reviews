@@ -4,7 +4,7 @@
   "description": "Review component for Nordstrom item page clone",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --collect-coverage",
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node ./db/dataGen.js"

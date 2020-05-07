@@ -21,23 +21,24 @@ class App extends React.Component {
     this.getReviews = this.getReviews.bind(this);
   }
 
-  componentDidMount() {
-    this.getReviews();
-  }
-
   getReviews() {
-    axios.get('/products')
+    axios.get('/items/101')
       .then((response) => {
-        console.log(response);
-        this.setState({reviews: response.data})
+        //console.log('full resData: ', response.data[0].reviews);
+        this.setState({reviews: response.data[0].reviews})
       })
       .catch((error) => {
         console.log('failed to get reviews: ', error);
       });
   }
 
+  componentDidMount() {
+    this.getReviews();
+  }
+
 
   render() {
+    console.log('this is the state: ', this.state);
     return (
       <div>
         <div>
