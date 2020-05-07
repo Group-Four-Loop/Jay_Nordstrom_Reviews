@@ -52,33 +52,40 @@ const itemsPerProduct = () => {
 const items = () => {
   const items = [];
 
-  for (var i = 1; i <= 3; i += 1) {
-    if (i === 1) {
-      for (var j = 0; j <= 32; j += 1) {
-        let item = {};
-        item.type = 'shirt';
-        item._id = (100 + j);
-        item.reviews = reviewsPerItem();
-        items.push(item);
-      }
-    } else if (i === 2) {
-      for (var j = 0; j <= 32; j += 1) {
-        let item = {};
-        item.type = 'shoes';
-        item._id = (500 + j);
-        item.reviews = reviewsPerItem();
-        items.push(item);
-      }
-    } else if (i === 3) {
-      for (var j = 0; j <= 32; j += 1) {
-        let item = {};
-        item.type = 'pants';
-        item._id = (900 + j);
-        item.reviews = reviewsPerItem();
-        items.push(item);
-      }
+  const shirts = () => {
+    for (var j = 0; j <= 32; j += 1) {
+      let item = {};
+      item.type = 'shirt';
+      item._id = (100 + j);
+      item.reviews = reviewsPerItem();
+      items.push(item);
+    }
+  };
+
+  const shoes = () => {
+    for (var j = 0; j <= 32; j += 1) {
+      let item = {};
+      item.type = 'shoes';
+      item._id = (500 + j);
+      item.reviews = reviewsPerItem();
+      items.push(item);
+    }
+  };
+
+  const pants = () => {
+    for (var j = 0; j <= 32; j += 1) {
+      let item = {};
+      item.type = 'pants';
+      item._id = (900 + j);
+      item.reviews = reviewsPerItem();
+      items.push(item);
     }
   }
+
+  shirts();
+  shoes();
+  pants();
+
   return items;
 };
 
