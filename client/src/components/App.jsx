@@ -22,9 +22,8 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('/items/101')
+    axios.get('/items/100')
       .then((response) => {
-        //console.log('full resData: ', response.data[0].reviews);
         this.setState({reviews: response.data[0].reviews})
       })
       .catch((error) => {
@@ -38,7 +37,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log('this is the state: ', this.state);
     return (
       <div>
         <div>
